@@ -1,0 +1,142 @@
+.auth-container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/f272782d-cf96-4988-a675-6db2afd165e0/web/US-en-20241008-TRIFECTA-perspective_b28b640f-cee0-426b-ac3a-7c000d3b41b7_large.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  z-index: -1;
+}
+
+.auth-logo {
+  position: absolute;
+  top: 30px;
+  left: 50px;
+  color: #e50914;
+  font-size: 36px;
+  font-weight: 900;
+  cursor: pointer;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+
+.auth-form-container {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 60px 68px 40px;
+  border-radius: 4px;
+  min-width: 450px;
+}
+
+.auth-form h1 {
+  color: white;
+  margin-bottom: 28px;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.auth-form input {
+  width: 100%;
+  height: 50px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+}
+
+.auth-form input::placeholder {
+  color: #8c8c8c;
+}
+
+.auth-form input:focus {
+  outline: none;
+  background-color: #454545;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  height: 50px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: background-color 0.3s;
+}
+
+.auth-submit-btn:hover {
+  background-color: #f40612;
+}
+
+.auth-remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #b3b3b3;
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+.auth-remember label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.auth-remember input[type='checkbox'] {
+  width: auto;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.auth-help {
+  cursor: pointer;
+}
+
+.auth-help:hover {
+  text-decoration: underline;
+}
+
+.auth-signup-link {
+  margin-top: 16px;
+  color: #737373;
+  font-size: 16px;
+}
+
+.auth-signup-link span {
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-signup-link span:hover {
+  text-decoration: underline;
+}
+
+.auth-error {
+  background-color: #e87c03;
+  color: white;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
