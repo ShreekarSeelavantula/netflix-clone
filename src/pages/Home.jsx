@@ -1,18 +1,39 @@
+import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
 import Row from '../components/Row';
+import MovieModal from '../components/MovieModal';
 import { requests } from '../api/tmdb';
 import './Home.css';
 
 function Home() {
+  const [selectedMovie, setSelectedMovie] = useState(null);
+
   return (
     <div className="home">
       <Navbar />
       <Banner />
-      <Row title="Popular on Netflix" fetchUrl={requests.fetchTrending} isLargeRow />
-      <Row title="Blockbuster Movies" fetchUrl={requests.fetchTopRated} />
-      <Row title="Only on Netflix" fetchUrl={requests.fetchNetflixOriginals} />
-      <Row title="Top Pics for You" fetchUrl={requests.fetchActionMovies} />
+      <Row 
+        title="Popular on Netflix" 
+        fetchUrl={requests.fetchTrending} 
+        isLargeRow 
+        onMovieClick={setSelectedMovie}
+      />
+      <Row 
+        title="Blockbuster Movies" 
+        fetchUrl={requests.fetchTopRated}
+        onMovieClick={setSelectedMovie}
+      />
+      <Row 
+        title="Only on Netflix" 
+        fetchUrl={requests.fetchNetflixOriginals}
+        onMovieClick={setSelectedMovie}
+      />
+      <Row 
+        title="Top Pics for You" 
+        fetchUrl={requests.fetchActionMovies}
+        onMovieClick={setSelectedMovie}
+      />
       <div className="home-footer">
         <div className="footer-social">
           <svg viewBox="0 0 24 24" fill="currentColor">
@@ -53,6 +74,12 @@ function Home() {
           </div>
         </div>
       </div>
+      {selectedMovie && (
+        <MovieModal 
+          movie={selectedMovie} 
+          onClose={() => setSelectedMovie(null)} 
+        />
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import tmdb from '../api/tmdb';
 import './Row.css';
 
-function Row({ title, fetchUrl, isLargeRow = false }) {
+function Row({ title, fetchUrl, isLargeRow = false, onMovieClick }) {
   const [movies, setMovies] = useState([]);
 
   const base_url = 'https://image.tmdb.org/t/p/original/';
@@ -34,6 +34,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
                   isLargeRow ? movie.poster_path : movie.backdrop_path
                 }`}
                 alt={movie.name}
+                onClick={() => onMovieClick && onMovieClick(movie)}
               />
             )
         )}

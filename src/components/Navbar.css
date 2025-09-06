@@ -90,6 +90,7 @@
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 10px;
   min-width: 150px;
+  z-index: 2000;
 }
 
 .navbar-dropdown button {

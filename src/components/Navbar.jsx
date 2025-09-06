@@ -36,12 +36,12 @@ function Navbar() {
       <div className="navbar-left">
         <h1 className="navbar-logo" onClick={() => navigate('/home')}>NETFLIX</h1>
         <div className="navbar-links">
-          <span>Home</span>
-          <span>TV Shows</span>
-          <span>Movies</span>
-          <span>New & Popular</span>
-          <span>My List</span>
-          <span>Browse by Languages</span>
+          <span onClick={() => navigate('/home')}>Home</span>
+          <span onClick={() => navigate('/tvshows')}>TV Shows</span>
+          <span onClick={() => navigate('/movies')}>Movies</span>
+          <span onClick={() => navigate('/home')}>New & Popular</span>
+          <span onClick={() => navigate('/mylist')}>My List</span>
+          <span onClick={() => navigate('/home')}>Browse by Languages</span>
         </div>
       </div>
       <div className="navbar-right">
@@ -56,8 +56,7 @@ function Navbar() {
         </svg>
         <div 
           className="navbar-avatar-container"
-          onMouseEnter={() => setShowDropdown(true)}
-          onMouseLeave={() => setShowDropdown(false)}
+          onClick={() => setShowDropdown(!showDropdown)}
         >
           <img 
             className="navbar-avatar" 
@@ -68,7 +67,7 @@ function Navbar() {
             <path d="M7 10l5 5 5-5z"></path>
           </svg>
           {showDropdown && (
-            <div className="navbar-dropdown">
+            <div className="navbar-dropdown" onClick={(e) => e.stopPropagation()}>
               <button onClick={handleSignOut}>Sign Out of Netflix</button>
             </div>
           )}
