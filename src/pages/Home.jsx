@@ -1,7 +1,3 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase';
 import Navbar from '../components/Navbar';
 import Banner from '../components/Banner';
 import Row from '../components/Row';
@@ -9,25 +5,6 @@ import { requests } from '../api/tmdb';
 import './Home.css';
 
 function Home() {
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        navigate('/signin');
-      } else {
-        setLoading(false);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [navigate]);
-
-  if (loading) {
-    return <div className="loading">Loading...</div>;
-  }
-
   return (
     <div className="home">
       <Navbar />
